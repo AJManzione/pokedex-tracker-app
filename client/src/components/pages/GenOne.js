@@ -82,14 +82,13 @@ export default function GenOne() {
         entry: entry,
       },
     });
-    console.log(typeof(entry))
   }
 
   function releaseCatch(entry) {
     unCatchPokemon({
       variables: {
         username: currentUser,
-        entry: parseFloat(entry),
+        entry: entry,
       },
     });
   }
