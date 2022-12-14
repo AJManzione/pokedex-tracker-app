@@ -1,0 +1,39 @@
+{
+  "name": "my-pokedex",
+  "version": "1.0.0",
+  "description": "## A place to track your overall pokedex progress, earn badges and customize your account!",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.15.0",
+    "prettier": "^2.1.2",
+    "react-typed": "^1.2.0"
+  },
+  "dependencies": {
+    "react-blink-text": "^1.0.5",
+    "react-bootstrap": "^2.7.0",
+    "react-reveal": "^1.2.2"
+  },
+  "engines": {
+    "node": "16.18.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AJManzione/Pokemon-Trading-Center.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AJManzione/Pokemon-Trading-Center/issues"
+  },
+  "homepage": "https://github.com/AJManzione/Pokemon-Trading-Center#readme"
+}
