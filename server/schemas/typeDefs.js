@@ -12,7 +12,7 @@ const typeDefs = gql`
     _id: ID
     name: String
     type: String
-    entry: Number
+    entry: Int
   }
 
   type Query {

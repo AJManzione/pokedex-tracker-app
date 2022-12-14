@@ -15,12 +15,29 @@ const checkPassword = function(input) {
   }
 
   const pokemonSchema = new Schema({
-
+    
+    // name: {
+    //   type: String,
+    //   required: true,
+    //   trim: true,
+    //   toUpper: true
+    // },
+    // type: {
+    //   type: String,
+    //   require: true,
+    //   trim: true,
+    // },
     entry: {
-      type: Number,
+      type: String,
       required: true,
       trim: true
     }
+  //   user: [
+  //     {
+  //       type: Schema.Types.ObjectId,
+  //       ref: "User",
+  //     },
+  //   ],
   });
 
   
