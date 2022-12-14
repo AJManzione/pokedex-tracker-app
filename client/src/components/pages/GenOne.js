@@ -199,16 +199,11 @@ export default function GenOne() {
     }
   };
 
-function redirect() {
-  window.location.replace("/login")
-}
-
   return (
 <div>
   <DexTabs/>
     <div className="gen-one-bg">
       <div className="container pt-3">
-        <ul className="list-group">
           <h1 
             style={{color: 'white'}}
             className="text-center">Kanto
@@ -220,24 +215,29 @@ function redirect() {
             return (
               <li
                 className="list-group-item-success m-1"
-                key={parseFloat(pokemon.entry)}
-              >
+                key={parseFloat(pokemon.entry)}>
                 <ul className="d-flex justify-content-between align-items-center">
-                  <div className="d-flex align-items-center justify-content-around">
-                    <li>
+                    <li 
+                      style={{maxWidth:'1vw'}}
+                      className="col-sm-2 text-center">
                       <img
                         style={{maxWidth:'6vw'}}
                         src={pokemon.sprite}>
                       </img>
                     </li>
-                    <li className="m-4">
+                    <li 
+                      style={{maxWidth: '20vw'}}
+                      className="col-sm-2 text-center">
                       <h4>#{pokemon.entry}</h4>
                     </li>
-                  </div>
-                  <li>
-                    <h4>{pokemon.name}</h4>
+                  <li
+                    className="col-sm-4 text-center">
+                    <h4
+                      className="text-center"
+                      style={{fontSize:'1.5vw'}}>{pokemon.name}</h4>
                   </li>
-                  <li>
+                  <li 
+                    className="col-sm-3 text-center">
                     <img 
                       style={{maxWidth:'100%',
                       maxHeight:'4vh'}} src={getTypeOne(pokemon.type)}></img>
@@ -267,7 +267,6 @@ function redirect() {
               </li>
             );
           })}
-        </ul>
       </div>
     </div>
   </div>
