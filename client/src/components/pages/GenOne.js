@@ -92,7 +92,7 @@ export default function GenOne() {
       },
     });
   }
-
+/* 
   function toggleCatch(entry) {
 
     if (!userData.pokemonCaught.includes(parseFloat(entry))) {
@@ -111,7 +111,7 @@ export default function GenOne() {
       document.getElementById(`${entry}`).src = pokeballOpen;
       console.log(userData.pokemonCaught);
     }
-  }
+  } */
 
   const getTypeOne = (splitFirst) => {
     let type = splitFirst.trim();
@@ -255,7 +255,7 @@ export default function GenOne() {
                             ? pokeballOpen
                             : pokeballClosed
                         }
-                        onClick={() => toggleCatch("entry")}
+                        onClick={() => newCatch(`entry${i}`)}
                       ></img>
                     </Tada>
                   </li>
