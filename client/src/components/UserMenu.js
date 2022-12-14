@@ -11,7 +11,6 @@ export default function UserMenu() {
 const currentUser = localStorage.getItem('username')
 
 
-
   const { loading, data: userValue } = useQuery(QUERY_USER, {
     variables: { username: currentUser },
     
@@ -25,7 +24,7 @@ const currentUser = localStorage.getItem('username')
   });
 
 
-  console.log(userValue?.user?.sprite)
+  console.log(userValue?.user?.pokemonCaught?.map((caught) => caught.entry))
 
 
   useEffect(() => {

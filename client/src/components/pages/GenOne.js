@@ -79,9 +79,10 @@ export default function GenOne() {
     catchPokemon({
       variables: {
         username: currentUser,
-        entry: parseFloat(entry),
+        entry: entry,
       },
     });
+    console.log(typeof(entry))
   }
 
   function releaseCatch(entry) {
@@ -94,16 +95,20 @@ export default function GenOne() {
   }
 
   function toggleCatch(entry) {
+
     if (!userData.pokemonCaught.includes(parseFloat(entry))) {
+
       newCatch(entry);
       userData.pokemonCaught = [...userData.pokemonCaught, parseFloat(entry)];
       document.getElementById(`${entry}`).src = pokeballClosed;
       console.log(userData.pokemonCaught);
+
     } else {
       releaseCatch(entry);
       userData.pokemonCaught = userData.pokemonCaught.filter(
         (pokemon) => pokemon != parseFloat(entry)
       );
+      
       document.getElementById(`${entry}`).src = pokeballOpen;
       console.log(userData.pokemonCaught);
     }
@@ -251,7 +256,7 @@ export default function GenOne() {
                             ? pokeballOpen
                             : pokeballClosed
                         }
-                        onClick={() => toggleCatch(parseFloat(pokemon.entry))}
+                        onClick={() => toggleCatch(pokemon.entry)}
                       ></img>
                     </Tada>
                   </li>
