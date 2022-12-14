@@ -17,7 +17,7 @@ const checkPassword = function(input) {
   const pokemonSchema = new Schema({
 
     entry: {
-      type: Number,
+      type: String,
       required: true,
       trim: true
     }

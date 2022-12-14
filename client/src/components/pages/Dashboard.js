@@ -35,15 +35,15 @@ const currentUser = localStorage.getItem('username')
 
 
 
-const genOneTotal = userData?.pokemonCaught?.filter((pokemon) => pokemon <= 151);
-const genTwoTotal = userData?.pokemonCaught?.filter((pokemon) => pokemon >= 152 && pokemon <= 252);
-const genThreeTotal = userData?.pokemonCaught?.filter((pokemon) => pokemon >= 253 && pokemon <= 386);
-const genFourTotal = userData?.pokemonCaught?.filter((pokemon) => pokemon >= 387 && pokemon <= 493);
-const genFiveTotal = userData?.pokemonCaught?.filter((pokemon) => pokemon >= 494 && pokemon <= 649);
-const genSixTotal = userData?.pokemonCaught?.filter((pokemon) => pokemon >= 650 && pokemon <= 721);
-const genSevenTotal = userData?.pokemonCaught?.filter((pokemon) => pokemon >= 722 && pokemon <= 809);
-const genEightTotal = userData?.pokemonCaught?.filter((pokemon) => pokemon >= 810 && pokemon <= 905);
-const genNineTotal = userData?.pokemonCaught?.filter((pokemon) => pokemon >= 906 && pokemon <= 1010);
+const genOneTotal = userData?.pokemonCaught?.filter((pokemon) => parseInt(pokemon) <= 151);
+const genTwoTotal = userData?.pokemonCaught?.filter((pokemon) => parseInt(pokemon) >= 152 && parseInt(pokemon) <= 252);
+const genThreeTotal = userData?.pokemonCaught?.filter((pokemon) => parseInt(pokemon) >= 253 && parseInt(pokemon) <= 386);
+const genFourTotal = userData?.pokemonCaught?.filter((pokemon) => parseInt(pokemon) >= 387 && parseInt(pokemon) <= 493);
+const genFiveTotal = userData?.pokemonCaught?.filter((pokemon) => parseInt(pokemon) >= 494 && parseInt(pokemon) <= 649);
+const genSixTotal = userData?.pokemonCaught?.filter((pokemon) => parseInt(pokemon) >= 650 && parseInt(pokemon) <= 721);
+const genSevenTotal = userData?.pokemonCaught?.filter((pokemon) => parseInt(pokemon) >= 722 && parseInt(pokemon) <= 809);
+const genEightTotal = userData?.pokemonCaught?.filter((pokemon) => parseInt(pokemon) >= 810 && parseInt(pokemon) <= 905);
+const genNineTotal = userData?.pokemonCaught?.filter((pokemon) => parseInt(pokemon) >= 906 && parseInt(pokemon) <= 1010);
 
 function determineBadge (userTotal, genTotal){
   if(userTotal/genTotal < .33){ 

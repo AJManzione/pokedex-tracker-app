@@ -12,7 +12,7 @@ const typeDefs = gql`
     _id: ID
     name: String
     type: String
-    entry: Int
+    entry: String
   }
 
   type Query {
@@ -31,8 +31,8 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     loginUser(email: String!, password: String!): Auth
     removeUser(username: String!): User
-    catchPokemon(username: String!, entry: Int!): User
-    unCatchPokemon(username: String!, entry: Int!): User
+    catchPokemon(username: String!, entry: String!): User
+    unCatchPokemon(username: String!, entry: String!): User
     updateSprite(username: String!, sprite: String!): User
   }
 `;

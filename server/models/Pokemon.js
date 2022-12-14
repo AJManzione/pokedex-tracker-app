@@ -3,7 +3,7 @@ const { Schema, model } = require("mongoose");
 const pokemonSchema = new Schema({
 
   entry: {
-    type: Number,
+    type: String,
     required: true,
     trim: true
   }
