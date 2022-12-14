@@ -62,7 +62,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <DexTabs/>
+        <DexTabs isLogged={isLogged} />
         <Routes>
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/GenOne" element={<GenOne />} />

@@ -63,8 +63,6 @@ const Signup = () => {
                     type="email"
                     value={formState.email}
                     onChange={handleChange}
-                    autoFocus
-                    autocomplete="false"
                     onFocus={e => e.currentTarget.select()}
                   />
                   <input
@@ -74,8 +72,6 @@ const Signup = () => {
                     type="username"
                     value={formState.username}
                     onChange={handleChange}
-                    autoFocus
-                    autocomplete="false"
                     onFocus={e => e.currentTarget.select()}
                   />
                   <input
@@ -85,7 +81,6 @@ const Signup = () => {
                     type="password"
                     value={formState.password}
                     onChange={handleChange}
-                    autocomplete="false"
                     onFocus={e => e.currentTarget.select()}
                   />
                   <button

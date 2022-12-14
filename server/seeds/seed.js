@@ -33,5 +33,4 @@ db.once("open", async () => {
 
 
   console.log("pokemon data seeded!");
-  process.exit(0);
 });
