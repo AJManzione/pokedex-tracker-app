@@ -64,7 +64,7 @@ function App() {
       <Router>
         <DexTabs isLogged={isLogged} />
         <Routes>
-          <Route path="*" element={<Login />} />
+          <Route path="/" element={<Login />} />
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/GenOne" element={<GenOne />} />
           <Route path="/GenTwo" element={<GenTwo />} />
