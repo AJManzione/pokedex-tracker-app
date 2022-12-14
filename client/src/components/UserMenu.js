@@ -56,7 +56,7 @@ const currentUser = localStorage.getItem('username')
         <div className='row'>
           <div className='col d-flex flex-column align-items-center '>
             <img 
-              width='100px'
+              width='40%'
               src={userValue?.user?.sprite}></img>
             <a 
               className='m-4 p-1'
