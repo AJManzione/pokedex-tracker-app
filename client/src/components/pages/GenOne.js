@@ -79,7 +79,7 @@ export default function GenOne() {
     catchPokemon({
       variables: {
         username: currentUser,
-        entry: "entry",
+        entry: entry,
       },
     });
   }
@@ -255,7 +255,7 @@ export default function GenOne() {
                             ? pokeballOpen
                             : pokeballClosed
                         }
-                        onClick={() => toggleCatch(pokemon.entry)}
+                        onClick={() => toggleCatch("entry")}
                       ></img>
                     </Tada>
                   </li>
