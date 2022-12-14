@@ -26,7 +26,7 @@ export const ADD_USER = gql`
 
 
 export const CATCH_POKEMON = gql`
-  mutation CatchPokemon($username: String!, $entry: Number!) {
+  mutation CatchPokemon($username: String!, $entry: Int!) {
     catchPokemon(username: $username, entry: $entry) {
       pokemonCaught {
         entry
@@ -36,7 +36,7 @@ export const CATCH_POKEMON = gql`
 `
 
 export const UNCATCH_POKEMON = gql`
-  mutation unCatchPokemon($username: String!, $entry: Number!) {
+  mutation unCatchPokemon($username: String!, $entry: Int!) {
     unCatchPokemon(username: $username, entry: $entry) {
       pokemonCaught {
         entry

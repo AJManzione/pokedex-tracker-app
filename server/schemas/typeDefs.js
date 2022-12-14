@@ -31,8 +31,8 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     loginUser(email: String!, password: String!): Auth
     removeUser(username: String!): User
-    catchPokemon(username: String!, entry: Number!): User
-    unCatchPokemon(username: String!, entry: Number!): User
+    catchPokemon(username: String!, entry: Int!): User
+    unCatchPokemon(username: String!, entry: Int!): User
     updateSprite(username: String!, sprite: String!): User
   }
 `;
