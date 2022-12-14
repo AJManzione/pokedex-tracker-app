@@ -60,7 +60,6 @@ function App() {
   };
 
   return (
-    <ApolloProvider client={client}>
       <Router>
         <DexTabs isLogged={isLogged} />
         <Routes>
@@ -79,7 +78,6 @@ function App() {
           <Route path="/sprites" element={<Trainers />} />
         </Routes>
       </Router>
-    </ApolloProvider>
   );
 }
 
