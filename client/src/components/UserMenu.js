@@ -34,7 +34,7 @@ const currentUser = localStorage.getItem('username')
         _id: userValue?.user?._id,
         username: userValue?.user?.username,
         sprite: userValue?.user?.sprite,
-        pokemonCaught: userValue?.user?.pokemonCaught?.map((caught) => parseInt(caught.entry))
+        pokemonCaught: userValue?.user?.pokemonCaught?.map((caught) => caught.entry)
       });
     }
   }, [ loading, userValue ]);
