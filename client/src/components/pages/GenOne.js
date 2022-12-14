@@ -79,7 +79,7 @@ export default function GenOne() {
     catchPokemon({
       variables: {
         username: currentUser,
-        entry: entry,
+        entry: parseFloat(entry),
       },
     });
   }
@@ -88,25 +88,24 @@ export default function GenOne() {
     unCatchPokemon({
       variables: {
         username: currentUser,
-        entry: entry,
+        entry: parseFloat(entry),
       },
     });
   }
 
   function toggleCatch(entry) {
-
-    if (!userData?.pokemonCaught?.includes(parseFloat(entry))) {
+    if (!userData.pokemonCaught.includes(parseFloat(entry))) {
       newCatch(entry);
       userData.pokemonCaught = [...userData.pokemonCaught, parseFloat(entry)];
       document.getElementById(`${entry}`).src = pokeballClosed;
-      console.log(userData?.pokemonCaught);
+      console.log(userData.pokemonCaught);
     } else {
       releaseCatch(entry);
       userData.pokemonCaught = userData.pokemonCaught.filter(
         (pokemon) => pokemon != parseFloat(entry)
       );
       document.getElementById(`${entry}`).src = pokeballOpen;
-      console.log(userData?.pokemonCaught);
+      console.log(userData.pokemonCaught);
     }
   }
 
@@ -213,7 +212,7 @@ export default function GenOne() {
             return (
               <li
                 className="list-group-item-success m-1"
-                key={pokemon.entry}
+                key={parseFloat(pokemon.entry)}
               >
                 <ul className="d-flex justify-content-between align-items-center">
                   <div className="d-flex align-items-center justify-content-around">
@@ -242,15 +241,17 @@ export default function GenOne() {
                   <li>
                     <Tada duration={2500}>
                       <img
-                        id={pokemon.entry}
-                        key={pokemon.entry}
+                        id={parseFloat(parseFloat(pokemon.entry))}
+                        key={parseFloat(parseFloat(pokemon.entry))}
                         className="pokeball"
                         src={
-                          !userData?.pokemonCaught?.includes(pokemon.entry)
+                          !userData.pokemonCaught.includes(
+                            parseFloat(pokemon.entry)
+                          )
                             ? pokeballOpen
                             : pokeballClosed
                         }
-                        onClick={() => toggleCatch(parseInt(pokemon.entry))}
+                        onClick={() => toggleCatch(parseFloat(pokemon.entry))}
                       ></img>
                     </Tada>
                   </li>
