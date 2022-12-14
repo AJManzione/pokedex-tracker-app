@@ -1,5 +1,5 @@
 {
-  "name": "pokedex-tracker-app",
+  "name": "my-pokedex",
   "version": "1.0.0",
   "description": "## A place to track your overall pokedex progress, earn badges and customize your account!",
   "main": "server/server.js",
@@ -21,7 +21,6 @@
     "react-typed": "^1.2.0"
   },
   "dependencies": {
-    "axios": "^1.2.1",
     "react-blink-text": "^1.0.5",
     "react-bootstrap": "^2.7.0",
     "react-reveal": "^1.2.2"
@@ -36,5 +35,5 @@
   "bugs": {
     "url": "https://github.com/AJManzione/Pokemon-Trading-Center/issues"
   },
-  "homepage": "https://github.com/AJManzione/Pokemon-Trading-Center#readme"
+  "homepage": "https://pokedex-tracker-app.herokuapp.com/"
 }
