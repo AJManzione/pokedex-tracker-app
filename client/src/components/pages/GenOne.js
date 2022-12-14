@@ -252,7 +252,7 @@ export default function GenOne() {
                             ? pokeballOpen
                             : pokeballClosed
                         }
-                        onClick={() => toggleCatch(pokemon.entry)}
+                        onClick={() => toggleCatch(parseInt(pokemon.entry))}
                       ></img>
                     </Tada>
                   </li>

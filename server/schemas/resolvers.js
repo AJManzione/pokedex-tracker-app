@@ -80,7 +80,7 @@ const resolvers = {
       user.delete({})
     },
     catchPokemon: async (parent, args) => {
-      const pokemon = await Pokemon.findOne({entry: args.entry})
+      const pokemonOne = await Pokemon.findOne({entry: args.entry})
       User.findOneAndUpdate(
         {username: args.username},
         { $addToSet: {pokemonCaught: pokemon}},
