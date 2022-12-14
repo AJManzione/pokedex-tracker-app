@@ -76,7 +76,7 @@ function App() {
           <Route path="/GenNine" element={<GenNine />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/SignUp" element={<Signup />} />
-          <Route path="/Sprites" element={<Trainers />} />
+          <Route path="/sprites" element={<Trainers />} />
         </Routes>
       </Router>
     </ApolloProvider>

@@ -67,7 +67,7 @@ const Login = (props) => {
                     value={formState.email}
                     onChange={handleChange}
                     autoFocus
-                    autoComplete="false"
+                    autocomplete="false"
                     onFocus={e => e.currentTarget.select()}
                   />
                   <input
@@ -77,7 +77,7 @@ const Login = (props) => {
                     type="password"
                     value={formState.password}
                     onChange={handleChange}
-                    autoComplete="false"
+                    autocomplete="false"
                     onFocus={e => e.currentTarget.select()}
                   />
                   <button
