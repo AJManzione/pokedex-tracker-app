@@ -76,21 +76,19 @@ export default function GenOne() {
   }, [loading, userValue]);
 
   function newCatch(entry) {
-    const dexNumber = parseInt(entry)
     catchPokemon({
       variables: {
         username: currentUser,
-        entry: dexNumber,
+        entry: entry,
       },
     });
   }
 
   function releaseCatch(entry) {
-    const dexNumber = parseInt(entry)
     unCatchPokemon({
       variables: {
         username: currentUser,
-        entry: dexNumber,
+        entry: entry,
       },
     });
   }
