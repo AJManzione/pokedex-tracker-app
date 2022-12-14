@@ -226,7 +226,7 @@ export default function GenOne() {
                       </img>
                     </li>
                     <li 
-                      style={{maxWidth: '20vw'}}
+                      style={{maxWidth: '1vw'}}
                       className="col-sm-2 text-center">
                       <h4>#{pokemon.entry}</h4>
                     </li>
