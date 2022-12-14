@@ -104,7 +104,7 @@ export default function GenOne() {
       console.log(userData?.pokemonCaught);
     } else {
       releaseCatch(entry);
-      userData?.pokemonCaught = userData.pokemonCaught.filter(
+      userData.pokemonCaught = userData.pokemonCaught.filter(
         (pokemon) => pokemon != parseFloat(entry)
       );
       document.getElementById(`${entry}`).src = pokeballOpen;
