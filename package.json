@@ -1,5 +1,5 @@
 {
-  "name": "my-pokedex",
+  "name": "pokedex-tracker-app",
   "version": "1.0.0",
   "description": "## A place to track your overall pokedex progress, earn badges and customize your account!",
   "main": "server/server.js",
