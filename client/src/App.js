@@ -62,7 +62,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <DexTabs isLogged={isLogged} />
+        <DexTabs/>
         <Routes>
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/GenOne" element={<GenOne />} />
@@ -76,7 +76,7 @@ function App() {
           <Route path="/GenNine" element={<GenNine />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/SignUp" element={<Signup />} />
-          <Route path="/sprites" element={<Trainers />} />
+          <Route path="/Sprites" element={<Trainers />} />
         </Routes>
       </Router>
     </ApolloProvider>
