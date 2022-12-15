@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import pokeballOpen from "../../images/pokeball-open.png";
 import pokeballClosed from "../../images/pokeball-closed.png";
-import Tada from "react-reveal/Tada";
 import DexTabs from '../DexTabs'
+import Tada from "react-reveal/Tada";
 import { useMutation, useQuery } from "@apollo/client";
 import { CATCH_POKEMON, UNCATCH_POKEMON } from "../../utils/mutations";
 import { QUERY_USER } from "../../utils/queries";
@@ -26,6 +26,7 @@ import steel from "../../images/types/steel.png";
 import water from "../../images/types/water.png";
 
 export default function GenFive() {
+    
   // fetching all pokemon from JSON Data
   const [JSONdata, setJSONData] = useState([]);
 
@@ -80,7 +81,7 @@ export default function GenFive() {
     catchPokemon({
       variables: {
         username: currentUser,
-        entry: parseFloat(entry),
+        entry: parseInt(entry),
       },
     });
   }
@@ -89,7 +90,7 @@ export default function GenFive() {
     unCatchPokemon({
       variables: {
         username: currentUser,
-        entry: parseFloat(entry),
+        entry: parseInt(entry),
       },
     });
   }
@@ -97,16 +98,14 @@ export default function GenFive() {
   function toggleCatch(entry) {
     if (!userData.pokemonCaught.includes(parseFloat(entry))) {
       newCatch(entry);
-      userData.pokemonCaught = [...userData.pokemonCaught, parseFloat(entry)];
+      userData.pokemonCaught = [...userData.pokemonCaught, parseInt(entry)];
       document.getElementById(`${entry}`).src = pokeballClosed;
-      console.log(userData.pokemonCaught);
     } else {
       releaseCatch(entry);
       userData.pokemonCaught = userData.pokemonCaught.filter(
-        (pokemon) => pokemon != parseFloat(entry)
+        (pokemon) => pokemon != parseInt(entry)
       );
       document.getElementById(`${entry}`).src = pokeballOpen;
-      console.log(userData.pokemonCaught);
     }
   }
 
@@ -199,70 +198,82 @@ export default function GenFive() {
   };
 
   return (
-  <div>
-    <DexTabs/>
-    <div className="gen-five-bg">
-      <div className="container pt-3">
-        <h1 
-          style={{color: 'white'}}
-          className="text-center">Unova
-        </h1>
-        <hr
-          style={{borderTop: '2px solid white'}}>
-        </hr>
-        <ul className="list-group">
+<div
+  id="top">
+  <DexTabs/>
+    <div 
+      className="gen-five-bg ">
+      <div
+        className="user-menu-bg pb-3 d-flex flex-column align-items-center">
+          <h1 
+            style={{color: 'white', fontSize:'3vw'}}
+            className="text-center header pt-4">Unova
+          </h1>
           {JSONdata.map((pokemon, i) => {
             return (
-              <li
-                className="list-group-item-success m-1"
-                key={parseFloat(pokemon.entry)}
-              >
-                <ul className="d-flex justify-content-between align-items-center">
-                  <div className="d-flex align-items-center justify-content-around">
-                    <li>
-                      <img
-                        style={{maxWidth:'6vw'}}
-                        src={pokemon.sprite}>
-                      </img>
-                    </li>
-                    <li className="m-4">
-                      <h4>#{pokemon.entry}</h4>
-                    </li>
-                  </div>
-                  <li>
-                    <h4>{pokemon.name}</h4>
-                  </li>
-                  <li>
-                    <img 
-                      style={{maxWidth:'100%',
-                      maxHeight:'4vh'}} src={getTypeOne(pokemon.type)}></img>
-                    <img 
-                      style={{maxWidth:'100%',
-                      maxHeight:'4vh'}} src={getTypeTwo(pokemon.type)}>
+              <div
+                className="list-group-item-success mb-4 w-75"
+                key={parseInt(pokemon.entry)}>
+                <ul 
+                  className="d-flex align-items-center">
+                  <li 
+                    style={{maxWidth:'5vw'}}
+                    className="col-sm-2 text-center">
+                    <img
+                      style={{maxWidth:'100%'}}
+                      src={pokemon.sprite}>
                     </img>
                   </li>
-                  <li>
+                  <li 
+                    style={{maxWidth: '20vw'}}
+                    className="col-sm-2 text-center">
+                    <h4
+                      style={{fontSize:'100%'}}>#{pokemon.entry}
+                    </h4>
+                  </li>
+                  <li
+                    style={{maxWidth:'30vw'}}
+                    className="col-sm-4 text-center">
+                    <h4
+                      className="text-center"
+                      style={{fontSize:'2vw'}}>{pokemon.name}
+                    </h4>
+                  </li>
+                  <li 
+                    className="col-sm-3 text-center">
+                    <img 
+                      style={{maxWidth:'2.5vw'}} src={getTypeOne(pokemon.type)}></img>
+                    <img 
+                      style={{maxHeight:'2.5vw'}} src={getTypeTwo(pokemon.type)}>
+                    </img>
+                  </li>
+                  <li
+                    className="col-sm-3 text-center">
                     <Tada duration={2500}>
                       <img
-                        id={parseFloat(parseFloat(pokemon.entry))}
-                        key={parseFloat(parseFloat(pokemon.entry))}
+                        id={parseInt(pokemon.entry)}
+                        key={parseInt(pokemon.entry)}
                         className="pokeball"
                         src={
                           !userData.pokemonCaught.includes(
-                            parseFloat(pokemon.entry)
+                            parseInt(pokemon.entry)
                           )
                             ? pokeballOpen
                             : pokeballClosed
                         }
-                        onClick={() => toggleCatch(parseFloat(pokemon.entry))}
-                      ></img>
+                        onClick={() => toggleCatch(parseInt(pokemon.entry))}>
+                      </img>
                     </Tada>
                   </li>
                 </ul>
-              </li>
+              </div>
             );
           })}
-        </ul>
+          <a 
+            style={{color: 'white', textDecoration:'none'}}
+            className="text-center"
+            href="#top">Back To Top
+        </a>
       </div>
     </div>
   </div>

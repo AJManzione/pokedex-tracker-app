@@ -81,7 +81,7 @@ export default function GenOne() {
     catchPokemon({
       variables: {
         username: currentUser,
-        entry: parseFloat(entry),
+        entry: parseInt(entry),
       },
     });
   }
@@ -90,7 +90,7 @@ export default function GenOne() {
     unCatchPokemon({
       variables: {
         username: currentUser,
-        entry: parseFloat(entry),
+        entry: parseInt(entry),
       },
     });
   }
@@ -98,16 +98,14 @@ export default function GenOne() {
   function toggleCatch(entry) {
     if (!userData.pokemonCaught.includes(parseFloat(entry))) {
       newCatch(entry);
-      userData.pokemonCaught = [...userData.pokemonCaught, parseFloat(entry)];
+      userData.pokemonCaught = [...userData.pokemonCaught, parseInt(entry)];
       document.getElementById(`${entry}`).src = pokeballClosed;
-      console.log(userData.pokemonCaught);
     } else {
       releaseCatch(entry);
       userData.pokemonCaught = userData.pokemonCaught.filter(
-        (pokemon) => pokemon != parseFloat(entry)
+        (pokemon) => pokemon != parseInt(entry)
       );
       document.getElementById(`${entry}`).src = pokeballOpen;
-      console.log(userData.pokemonCaught);
     }
   }
 
@@ -200,74 +198,82 @@ export default function GenOne() {
   };
 
   return (
-<div>
+<div
+  id="top">
   <DexTabs/>
-    <div className="gen-one-bg">
-      <div className="container pt-3">
+    <div 
+      className="gen-one-bg ">
+      <div
+        className=" user-menu-bg pb-3 d-flex flex-column align-items-center">
           <h1 
-            style={{color: 'white'}}
-            className="text-center">Kanto
+            style={{color: 'white', fontSize:'3vw'}}
+            className="text-center header pt-4">Kanto
           </h1>
-          <hr
-            style={{borderTop: '2px solid white'}}>
-          </hr>
           {JSONdata.map((pokemon, i) => {
             return (
-              <li
-                className="list-group-item-success m-1"
-                key={parseFloat(pokemon.entry)}>
-                <ul className="d-flex justify-content-between align-items-center">
-                    <li 
-                      style={{maxWidth:'1vw'}}
-                      className="col-sm-2 text-center">
-                      <img
-                        style={{maxWidth:'6vw'}}
-                        src={pokemon.sprite}>
-                      </img>
-                    </li>
-                    <li 
-                      style={{maxWidth: '20vw'}}
-                      className="col-sm-2 text-center">
-                      <h4
-                        style={{fontSize:'30px'}}>#{pokemon.entry}</h4>
-                    </li>
+              <div
+                className="list-group-item-success mb-4 w-75"
+                key={parseInt(pokemon.entry)}>
+                <ul 
+                  className="d-flex align-items-center">
+                  <li 
+                    style={{maxWidth:'5vw'}}
+                    className="col-sm-2 text-center">
+                    <img
+                      style={{maxWidth:'100%'}}
+                      src={pokemon.sprite}>
+                    </img>
+                  </li>
+                  <li 
+                    style={{maxWidth: '20vw'}}
+                    className="col-sm-2 text-center">
+                    <h4
+                      style={{fontSize:'100%'}}>#{pokemon.entry}
+                    </h4>
+                  </li>
                   <li
+                    style={{maxWidth:'30vw'}}
                     className="col-sm-4 text-center">
                     <h4
                       className="text-center"
-                      style={{fontSize:'1.5vw'}}>{pokemon.name}</h4>
+                      style={{fontSize:'2vw'}}>{pokemon.name}
+                    </h4>
                   </li>
                   <li 
                     className="col-sm-3 text-center">
                     <img 
-                      style={{maxWidth:'100%',
-                      maxHeight:'4vh'}} src={getTypeOne(pokemon.type)}></img>
+                      style={{maxWidth:'2.5vw'}} src={getTypeOne(pokemon.type)}></img>
                     <img 
-                      style={{maxWidth:'100%',
-                      maxHeight:'4vh'}} src={getTypeTwo(pokemon.type)}>
+                      style={{maxHeight:'2.5vw'}} src={getTypeTwo(pokemon.type)}>
                     </img>
                   </li>
-                  <li>
+                  <li
+                    className="col-sm-3 text-center">
                     <Tada duration={2500}>
                       <img
-                        id={parseFloat(parseFloat(pokemon.entry))}
-                        key={parseFloat(parseFloat(pokemon.entry))}
+                        id={parseInt(pokemon.entry)}
+                        key={parseInt(pokemon.entry)}
                         className="pokeball"
                         src={
                           !userData.pokemonCaught.includes(
-                            parseFloat(pokemon.entry)
+                            parseInt(pokemon.entry)
                           )
                             ? pokeballOpen
                             : pokeballClosed
                         }
-                        onClick={() => toggleCatch(parseFloat(pokemon.entry))}
-                      ></img>
+                        onClick={() => toggleCatch(parseInt(pokemon.entry))}>
+                      </img>
                     </Tada>
                   </li>
                 </ul>
-              </li>
+              </div>
             );
           })}
+          <a 
+            style={{color: 'white', textDecoration:'none'}}
+            className="text-center"
+            href="#top">Back To Top
+        </a>
       </div>
     </div>
   </div>
